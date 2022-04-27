@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <div th:if="${param.error}" th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+      <p>Your login attempt was not successful, try again.<br />
+        Reason: <span th:text="${errorMsg}">Wrong input!</span></p>
+    </div>
+    <form action="login" method="post">
+      <table>
+        <tr>
+          <td>User</td>
+          <td>:</td>
+          <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>:</td>
+          <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td><input type="submit" value="submit"></td>
+        </tr>
+      </table>
+      <p>Or login with</p>
+      <p><a th:href="@{/oauth2/authorization/google}">Google</a></p>
+    </form>
+  </body>
+</html>
