@@ -15,5 +15,11 @@ spring:
             clientId: <CLIENT_ID>
             clientSecret: <CLIENT_SECRET>
             scope:
-            - email
-            - profile
+              - email
+              - profile
+          facebook:
+            clientId: <CLIENT_ID>
+            clientSecret: <CLIENT_SECRET>
+            scope:
+              - email
+              - public_profile
